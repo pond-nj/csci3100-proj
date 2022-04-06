@@ -1,0 +1,237 @@
+.text-maincolor {
+  color: #ff7500;
+}
+
+.bg-over-lay {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.48);
+  z-index: 2000;
+}
+
+.sidecart {
+  height: 100vh;
+  width: 400px;
+  min-width: 400px;
+  position: fixed;
+  overflow: auto !important;
+  right: -400px;
+  z-index: 9000;
+  transition: 0.5s ease;
+  background-color: #ffffff !important;
+}
+
+@media (max-width: 400px) {
+  .sidecart {
+    width: 100vw;
+    right: -100vw;
+  }
+}
+.open-cart {
+  right: 0px !important;
+}
+
+.product-quantity {
+  position: relative;
+}
+
+.product-quantity:after {
+  content: "x de";
+  white-space: nowrap;
+  position: absolute;
+  z-index: 10;
+  margin-left: 2px;
+}
+
+.sidecart-price > div {
+  margin: auto;
+  width: 100%;
+  white-space: nowrap;
+}
+
+button.btn-main-color {
+  background-color: #ff7500;
+  color: #ffffff;
+}
+
+.pop-up {
+  background-color: #fefefe;
+  width: 50%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  overflow: scroll;
+  display: none;
+}
+
+.display-show {
+  display: block !important;
+}
+
+#food-info-img {
+  padding-bottom: 40%;
+  background-size: cover;
+  background-position: center center;
+}
+
+label.radio-box {
+  display: block;
+  position: relative;
+  padding-left: 50px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  margin-bottom: 0px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+label.radio-box:hover {
+  background-color: #f7f7f7;
+}
+
+label.radio-box input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkmark {
+  position: absolute;
+  top: 17px;
+  left: 20px;
+  height: 20px;
+  width: 20px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+label.radio-box:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+label.radio-box input:checked ~ .checkmark {
+  background-color: #ff7500;
+}
+
+.checkmark::after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+label.radio-box input:checked ~ .checkmark:after {
+  display: block;
+}
+
+label.radio-box .checkmark::after {
+  top: 6px;
+  left: 6px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+}
+
+label.radio-box .price {
+  padding-right: 20px;
+}
+
+#bg-img {
+  padding-bottom: 20%;
+  background-size: cover;
+  background-position: center center;
+}
+
+div.canteen-pic {
+  position: relative;
+  background-color: #343a40;
+  background-size: cover;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+}
+
+#menu-nav-tab button {
+  border-radius: 0;
+  border: 0;
+  background-color: transparent;
+  font-weight: 200;
+}
+
+#menu-nav-tab button:hover {
+  border-radius: 0;
+  border: 0;
+  background-color: transparent;
+  color: #ff7500;
+  font-weight: 600;
+}
+
+#menu-nav-tab button:focus {
+  border-radius: 0;
+  border: 0;
+  background-color: transparent;
+  font-weight: 400;
+  box-shadow: none;
+}
+
+button.food-menu {
+  background-color: transparent;
+  color: #ff7500;
+  font-weight: 400;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border: 0;
+}
+
+button.food-menu:hover {
+  background-color: transparent;
+  color: #ff7500;
+  font-weight: 400;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border: 1px solid !important;
+  border-color: #ff7500;
+}
+
+button.food-menu:focus {
+  background-color: transparent;
+  color: #ff7500;
+  font-weight: 400;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-color: #ff7500;
+}
+
+div.comment {
+  background-color: transparent;
+  color: #ff7500;
+  font-weight: 400;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border: 0;
+}
+
+div.comment:hover {
+  background-color: transparent;
+  color: #ff7500;
+  font-weight: 400;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+div.comment:focus {
+  background-color: transparent;
+  color: #ff7500;
+  font-weight: 400;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  background-color: white;
+  border-color: #ff7500;
+}
+
+div.plus_sign:hover {
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
+/*# sourceMappingURL=canteenpage.css.map */

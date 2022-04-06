@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% if category == 'users' %}
+{% set active_page = category %}
+{% else %}
+{% set active_page = 'canteens' %}
+{% endif %}
+
+{% block title %}
+Admin Page - Data
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid my-4">
+    <div class="row mx-4 justify-content-center">
+        <div class="col-8">
+            <h2>{{ method }} {{ category }} </h2>
+            <form method="POST" action="" enctype="multipart/form-data">
+                <div class="form-group">
+                    {{ form.text(class="form-control form-control-lg", rows="10") }}
+                </div>
+                <div>
+                    <h2>
+                        Upload Image:
+                    </h2>
+                    {{ form.image }}
+                </div>
+                <div class="container-fluid my-4">
+                    <div class="row mx-4 justify-content-center">
+                        <div class="col-2 text-center">
+                            {{ form.submit(class="btn btn-dark") }}
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

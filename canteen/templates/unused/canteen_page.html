@@ -1,0 +1,546 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{canteen_name}} Canteen Page
+    <!-- Or change to Canteen Webapp -->
+{% endblock %}
+
+{% block stylesheet %}
+<link rel="stylesheet" href="../static/style/css/canteenpage.css">
+{% endblock %}
+
+{% block nav_right %}
+<li>
+  <a class="nav-link" onclick="toggleCart()" >Your Cart</a>
+</li>
+{% endblock %}
+
+{% block content %}
+<main id="main">
+    
+
+  <script >
+      function toggleCart(){
+        document.querySelector('#sidecart').classList.toggle('bg-over-lay');
+        document.querySelector('.sidecart').classList.toggle('open-cart');
+      }
+      function addToCart(){
+        document.querySelector('#enter-food-info').classList.toggle('bg-over-lay');
+        document.querySelector('.pop-up').classList.toggle('display-show');
+        var htmlTag = document.getElementsByTagName('html');
+        htmlTag[0].classList.toggle('overflow-hidden')
+
+
+      }
+  </script>
+    
+  <!-- Side Cart -->
+  <div id="sidecart" class="">
+    <div class="sidecart bg-light text-center">
+    
+    <div class="nav flex-column container">
+      <div class="text-secondary m-0 px-4 text-center container pt-4">
+        <div class="h4 font-weight-light text-center">
+          Your Cart 
+          <div class="d-inline float-right" style="margin-right: 0 auto;" onclick="toggleCart()">x</div>  <!-- THIS BLOCK EFFECTS THE CENTRE, IF LOOK CAREFULLY "YOUR CART" IS NOT CENTERED -->
+        </div>
+        <div class="h6 font-weight-light">No items in your cart</div>
+      </div>
+      <div class="pb-2">Your order from #CANTEEN NAME</div>
+      
+
+      <div class="flex-column container flex-wrap p-0 overflow-auto" style="max-height:40vh">
+        <div class="nav-link d-flex flex-wrap flex-column">
+          <div class="flex-row flex-wrap d-flex">
+            <div class="mr-auto text-danger">noodles1</div>
+            <div class="ml-auto">$32</div>
+          </div>
+          <div class="ml-auto">- 1 +</div>
+        </div>
+    
+
+        <div class="nav-link d-flex flex-wrap flex-column">
+          <div class="flex-row flex-wrap d-flex">
+            <div class="mr-auto text-danger">noodles2</div>
+            <div class="ml-auto">$32</div>
+          </div>
+          <div class="ml-auto">- 1 +</div>
+        </div>
+    
+
+        <div class="nav-link d-flex flex-wrap flex-column">
+          <div class="flex-row flex-wrap d-flex">
+            <div class="mr-auto text-danger">noodles3</div>
+            <div class="ml-auto">$32</div>
+          </div>
+          <div class="ml-auto">- 1 +</div>
+        </div>
+    
+
+        <div class="nav-link d-flex flex-wrap flex-column">
+          <div class="flex-row flex-wrap d-flex">
+            <div class="mr-auto text-danger">noodles4</div>
+            <div class="ml-auto">$32</div>
+          </div>
+          <div class="ml-auto">- 1 +</div>
+        </div>
+    
+
+        <div class="nav-link d-flex flex-wrap flex-column">
+          <div class="flex-row flex-wrap d-flex">
+            <div class="mr-auto text-danger">noodles5</div>
+            <div class="ml-auto">$32</div>
+          </div>
+          <div class="ml-auto">- 1 +</div>
+        </div>
+
+        <div class="nav-link d-flex flex-wrap flex-column">
+          <div class="flex-row flex-wrap d-flex">
+            <div class="mr-auto text-danger">noodles6</div>
+            <div class="ml-auto">$32</div>
+          </div>
+          <div class="ml-auto">- 1 +</div>
+        </div>
+
+        <div class="nav-link d-flex flex-wrap flex-column">
+          <div class="flex-row flex-wrap d-flex">
+            <div class="mr-auto text-danger">noodles7</div>
+            <div class="ml-auto">$32</div>
+          </div>
+          <div class="ml-auto">- 1 +</div>
+        </div>
+
+        <div class="nav-link d-flex flex-wrap flex-column">
+          <div class="flex-row flex-wrap d-flex">
+            <div class="mr-auto text-danger">noodles8</div>
+            <div class="ml-auto">$32</div>
+          </div>
+          <div class="ml-auto">- 1 +</div>
+        </div>
+      </div>
+    
+
+    </div>
+    <hr>
+
+    <div class="nav flex-column container" >
+      <div class="nav-link d-flex flex-wrap flex-column">
+        <div class="pb-2">
+          <div class="flex-row flex-wrap d-flex">
+            <div class="mr-auto text-secondary">Sub Total</div>
+            <div class="ml-auto">$200</div>
+          </div>
+
+          <div class="flex-row flex-wrap d-flex">
+            <div class="mr-auto text-secondary">Extra fee</div>
+            <div class="ml-auto">$0</div>
+          </div>
+        </div>
+
+        <div class="flex-row flex-wrap d-flex pb-2">
+          <div class="mr-auto">Total</div>
+          <div class="ml-auto">$0</div>
+        </div>
+          
+
+        <div class="pt-2">
+          <button type="button" class="pt-2 btn btn-main-color w-100">Go to checkout</button>
+        </div>
+      </div>
+    </div>
+    
+    </div>
+  </div>
+
+  <!-- Canteen Thumbnail and Info -->
+  <div class="m-0 p-0" style="overflow: hidden; background-color: #ffffff;">
+    <div id="bg-img" style="background-image: url({{canteen.image_path}}) ;">
+    </div>
+
+    <div id="canteen-info" class="container-fluid pt-5 pl-5 pb-4">
+        <div class="font-weight-bold h3"> {{canteen.name}} </div>
+        <div class="font-weight-light"> Open from 9am to 8.30pm </div>
+        <div class="" style="font-weight: 200;"> Minimum price: $27 | Wait time: 30min - 1hr</div>
+    </div>
+
+    <div id="menu-nav-tab" class="d-flex border m-0" style="height: 8vh;">
+      <button type="button" class="col-1 btn btn-outline-secondary border-0"> &lt; </button>
+      <div class="d-flex flex-fill m-0">
+        <button type="button" class="flex-fill btn btn-outline-secondary border-0"> Popular </button>
+        <button type="button" class="flex-fill btn btn-outline-secondary border-0"> Food </button>
+        <button type="button" class="flex-fill btn btn-outline-secondary border-0"> Drink </button>
+        <button type="button" class="flex-fill btn btn-outline-secondary border-0"> Dessert </button>
+      </div>
+      <button type="button" class="col-1 btn btn-outline-secondary border-0"> &gt; </button>
+    </div>
+    
+
+  </div>
+
+  <!-- Enter Food Info -->
+  <div id="enter-food-info" class="">
+    <!-- Container -->
+    <div class="container pop-up pl-0 pr-0" style="background-color: #ffffff; max-height: 90vh;">
+      <div class="m-0 p-0" style="background-color: #ffffff;">
+        <!-- Food Picture -->
+        <div id="food-info-img pr-2" style="background-image: url(../static/image/UC/Food1.jpeg) ;">
+          <!-- Quit Button -->
+          <div class="float-right pr-3 pt-3" onclick="addToCart()" style="color: #ffffff;">
+            X
+          </div> 
+        </div>
+        <div class="d-flex flex-column w-100">
+          <!-- Food Header -->
+          <div class="container pt-4 pl-4 pr-4 d-flex flex-row align-items-end">
+            <div class="mr-auto h4 mb-0">#FOOD NAME</div>
+            <div class="ml-auto">$PRICE</div>
+          </div>
+          <hr class="mt-4 mb-1" style="width: 100%;">
+          <!-- Choice 1 -->
+          <div class="container pt-4 pl-4 pr-4 mr-auto mb-3 h5">Choice1</div>
+          <div class="d-inline flex-column"> 
+            <label class="radio-box font-weight-light d-flex flex-row"> One
+              <input type="radio" checked="checked" name="choice1">
+              <span class="checkmark"></span>
+              <div class="ml-auto price" style="font-weight: 100;">$price</div>
+            </label>
+
+            <label class="radio-box font-weight-light d-flex flex-row"> Two
+              <input type="radio" checked="checked" name="choice1">
+              <span class="checkmark"></span>
+              <div class="ml-auto price" style="font-weight: 100;">$price</div>
+            </label>
+
+            <label class="radio-box font-weight-light d-flex flex-row"> Three
+              <input type="radio" checked="checked" name="choice1">
+              <span class="checkmark"></span>
+              <div class="ml-auto price" style="font-weight: 100;">$price</div>
+            </label>
+          </div>
+          <!-- Choice 2 -->
+          <div class="container pt-4 pl-4 pr-4 mr-auto mb-3 h5">Choice2</div>
+          <div class="d-inline flex-column"> 
+            <label class="radio-box font-weight-light d-flex flex-row"> One
+              <input type="radio" checked="checked" name="choice2">
+              <span class="checkmark"></span>
+              <div class="ml-auto price" style="font-weight: 100;">$price</div>
+            </label>
+
+            <label class="radio-box font-weight-light d-flex flex-row"> Two
+              <input type="radio" checked="checked" name="choice2">
+              <span class="checkmark"></span>
+              <div class="ml-auto price" style="font-weight: 100;">$price</div>
+            </label>
+
+            <label class="radio-box font-weight-light d-flex flex-row"> Three
+              <input type="radio" checked="checked" name="choice2">
+              <span class="checkmark"></span>
+              <div class="ml-auto price" style="font-weight: 100;">$price</div>
+            </label>
+          </div>
+
+          <div class="container pt-4 pl-4 pr-4 mr-auto mb-3 h5">Choice3</div>
+          <div class="d-inline flex-column"> 
+            <label class="radio-box font-weight-light d-flex flex-row"> One
+              <input type="radio" checked="checked" name="choice3">
+              <span class="checkmark"></span>
+              <div class="ml-auto price" style="font-weight: 100;">$price</div>
+            </label>
+
+            <label class="radio-box font-weight-light d-flex flex-row"> Two
+              <input type="radio" checked="checked" name="choice3">
+              <span class="checkmark"></span>
+              <div class="ml-auto price" style="font-weight: 100;">$price</div>
+            </label>
+
+            <label class="radio-box font-weight-light d-flex flex-row"> Three
+              <input type="radio" checked="checked" name="choice3">
+              <span class="checkmark"></span>
+              <div class="ml-auto price" style="font-weight: 100;">$price</div>
+            </label>
+          </div>
+
+
+
+            
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Category 1 -->
+  <div id="cat-1" class="mt-4 mb-4 pt-0 pl-0 pr-0 pb-4 container-fluid" style="background-color:rgb(255, 255, 255); ">
+    <div class="container m-0 pl-5 pt-4 pb-3">
+      <div class="p-0 h4">Popular</div>
+    </div>
+
+    <div class="container-fluid pl-5 pr-5">
+      <div class="d-flex flex-row flex-wrap" style="background-color: rgb(255, 255, 255); justify-content: space-between;">
+
+        <div class="container m-0 pt-3 pb-3 pr-3 pl-0 col-lg-4 col-12 col-md-6" style="height: 20vh;">
+          <button class="food-menu btn btn-outline-secondary h-100 w-100" onclick="addToCart()">
+            <div class="container">
+              <div class="flex-row d-flex flex-wrap">
+                <!-- Left side of button -->
+                <div class="d-flex flex-column" style="max-width: 50%;">
+                  <div class="mr-auto pt-2 h5">Food1</div>
+                  <div class="mr-auto font-weight-light h6 text-left" style="font-size: small;">Lorem ipsum dolor sit amet</div>
+                </div>
+                <!-- Right Side of Button -->
+                <div class="ml-auto">
+                  <img src="../static/image/UC/Food1.jpeg" style="object-fit: cover; width: 100px; height: 100px;">
+                </div>
+              </div>
+            </div>
+          </button>
+        </div>
+
+        <div class="container m-0 pt-3 pb-3 pr-3 pl-0 col-lg-4 col-12 col-md-6" style="height: 20vh;">
+          <button class="food-menu btn btn-outline-secondary h-100 w-100" >
+            <div class="container">
+              <div class="flex-row d-flex flex-wrap">
+                <!-- Left side of button -->
+                <div class="d-flex flex-column" style="max-width: 50%;">
+                  <div class="mr-auto pt-2 h5">Food2</div>
+                  <div class="mr-auto font-weight-light h6 text-left" style="font-size: small;">Lorem ipsum dolor sit amet</div>
+                </div>
+                <!-- Right Side of Button -->
+                <div class="ml-auto">
+                  <img src="../static/image/UC/Food1.jpeg" style="object-fit: cover; width: 100px; height: 100px;">
+                </div>
+              </div>
+            </div>
+          </button>
+        </div>
+
+        <div class="container m-0 pt-3 pb-3 pr-3 pl-0 col-lg-4 col-12 col-md-6" style="height: 20vh;">
+          <button class="food-menu btn btn-outline-secondary h-100 w-100" >
+            <div class="container">
+              <div class="flex-row d-flex flex-wrap">
+                <!-- Left side of button -->
+                <div class="d-flex flex-column" style="max-width: 50%;">
+                  <div class="mr-auto pt-2 h5">Food3</div>
+                  <div class="mr-auto font-weight-light h6 text-left" style="font-size: small;">Lorem ipsum dolor sit amet</div>
+                </div>
+                <!-- Right Side of Button -->
+                <div class="ml-auto">
+                  <img src="../static/image/UC/Food1.jpeg" style="object-fit: cover; width: 100px; height: 100px;">
+                </div>
+              </div>
+            </div>
+          </button>
+        </div>
+
+        <div class="container m-0 pt-3 pb-3 pr-3 pl-0 col-lg-4 col-12 col-md-6" style="height: 20vh;">
+          <button class="food-menu btn btn-outline-secondary h-100 w-100" >
+            <div class="container">
+              <div class="flex-row d-flex flex-wrap">
+                <!-- Left side of button -->
+                <div class="d-flex flex-column" style="max-width: 50%;">
+                  <div class="mr-auto pt-2 h5">Food4</div>
+                  <div class="mr-auto font-weight-light h6 text-left" style="font-size: small;">Lorem ipsum dolor sit amet</div>
+                </div>
+                <!-- Right Side of Button -->
+                <div class="ml-auto">
+                  <img src="../static/image/UC/Food1.jpeg" style="object-fit: cover; width: 100px; height: 100px;">
+                </div>
+              </div>
+            </div>
+          </button>
+        </div>
+
+        <div class="container m-0 pt-3 pb-3 pr-3 pl-0 col-lg-4 col-12 col-md-6" style="height: 20vh;">
+          <button class="food-menu btn btn-outline-secondary h-100 w-100" >
+            <div class="container">
+              <div class="flex-row d-flex flex-wrap">
+                <!-- Left side of button -->
+                <div class="d-flex flex-column" style="max-width: 50%;">
+                  <div class="mr-auto pt-2 h5">Food5</div>
+                  <div class="mr-auto font-weight-light h6 text-left" style="font-size: small;">Lorem ipsum dolor sit amet</div>
+                </div>
+                <!-- Right Side of Button -->
+                <div class="ml-auto">
+                  <img src="../static/image/UC/Food1.jpeg" style="object-fit: cover; width: 100px; height: 100px;">
+                </div>
+              </div>
+            </div>
+          </button>
+        </div>
+
+        <div class="container m-0 pt-3 pb-3 pr-3 pl-0 col-lg-4 col-12 col-md-6" style="height: 20vh;">
+          <button class="food-menu btn btn-outline-secondary h-100 w-100">
+            <div class="container">
+              <div class="flex-row d-flex flex-wrap">
+                <!-- Left side of button -->
+                <div class="d-flex flex-column" style="max-width: 50%;">
+                  <div class="mr-auto pt-2 h5">Food6</div>
+                  <div class="mr-auto font-weight-light h6 text-left" style="font-size: small;">Lorem ipsum dolor sit amet</div>
+                </div>
+                <!-- Right Side of Button -->
+                <div class="ml-auto">
+                  <img src="../static/image/UC/Food1.jpeg" style="object-fit: cover; width: 100px; height: 100px;">
+                </div>
+              </div>
+            </div>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Category 2 -->
+  <div id="cat-2" class="mt-4 mb-4 pt-0 pl-0 pr-0 pb-4 container-fluid" style="background-color:rgb(255, 255, 255); ">
+    <div class="container m-0 pl-5 pt-4 pb-3">
+      <div class="p-0 h4">Food</div>
+    </div>
+
+    <div class="container-fluid pl-5 pr-5">
+      <div class="d-flex flex-row flex-wrap" style="background-color: rgb(255, 255, 255); justify-content: space-between;">
+        <div class="container m-0 pt-3 pb-3 pr-3 pl-0" style="width: 45vw; height: 20vh;">
+          <button class="food-menu btn btn-outline-secondary h-100 w-100" >
+            <div class="container">
+              <div class="float-left">Food1</div>
+            </div>
+          </button>
+        </div>
+
+        <div class="container m-0 pt-3 pb-3 pr-3 pl-0" style="width: 45vw; height: 20vh;">
+          <button class="food-menu btn btn-outline-secondary h-100 w-100">
+            <div class="container">
+              <div class="float-left">Food2</div>
+            </div>
+          </button>
+        </div>
+        
+
+        <div class="container m-0 pt-3 pb-3 pr-3 pl-0" style="width: 45vw; height: 20vh;">
+          <button class="food-menu btn btn-outline-secondary h-100 w-100">
+            <div class="container">
+              <div class="float-left">Food3</div>
+            </div>
+          </button>
+        </div>
+        
+
+        <div class="container m-0 pt-3 pb-3 pr-3 pl-0" style="width: 45vw; height: 20vh;">
+          <button class="food-menu btn btn-outline-secondary h-100 w-100">
+            <div class="container">
+              <div class="float-left">Food4</div>
+            </div>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Category 3 -->
+  <div id="cat-3" class="mt-4 mb-4 pt-0 pl-0 pr-0 pb-4 container-fluid" style="background-color:rgb(255, 255, 255); ">
+    <div class="container m-0 pl-5 pt-4 pb-3">
+      <div class="p-0 h4">Drink</div>
+    </div>
+
+    <div class="container-fluid pl-5 pr-5">
+      <div class="d-flex flex-row flex-wrap" style="background-color: rgb(255, 255, 255); justify-content: space-between;">
+        <div class="container m-0 pt-3 pb-3 pr-3 pl-0" style="width: 45vw; height: 20vh;">
+          <button class="food-menu btn btn-outline-secondary h-100 w-100" >
+            <div class="container">
+              <div class="float-left">Food1</div>
+            </div>
+          </button>
+        </div>
+
+        <div class="container m-0 pt-3 pb-3 pr-3 pl-0" style="width: 45vw; height: 20vh;">
+          <button class="food-menu btn btn-outline-secondary h-100 w-100">
+            <div class="container">
+              <div class="float-left">Food2</div>
+            </div>
+          </button>
+        </div>
+        
+
+        <div class="container m-0 pt-3 pb-3 pr-3 pl-0" style="width: 45vw; height: 20vh;">
+          <button class="food-menu btn btn-outline-secondary h-100 w-100">
+            <div class="container">
+              <div class="float-left">Food3</div>
+            </div>
+          </button>
+        </div>
+        
+
+        <div class="container m-0 pt-3 pb-3 pr-3 pl-0" style="width: 45vw; height: 20vh;">
+          <button class="food-menu btn btn-outline-secondary h-100 w-100">
+            <div class="container">
+              <div class="float-left">Food4</div>
+            </div>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+  
+<!-- Category 4 -->
+  <div id="cat-4" class="mt-4 mb-4 pt-0 pl-0 pr-0 pb-4 container-fluid" style="background-color:rgb(255, 255, 255); ">
+    <div class="container m-0 pl-5 pt-4 pb-3">
+      <div class="p-0 h4">Dessert</div>
+    </div>
+
+    <div class="container-fluid pl-5 pr-5">
+      <div class="d-flex flex-row flex-wrap" style="background-color: rgb(255, 255, 255); justify-content: space-between;">
+        <div class="container m-0 pt-3 pb-3 pr-3 pl-0" style="width: 45vw; height: 20vh;">
+          <button class="food-menu btn btn-outline-secondary h-100 w-100" >
+            <div class="container">
+              <div class="float-left">Food1</div>
+            </div>
+          </button>
+        </div>
+
+        <div class="container m-0 pt-3 pb-3 pr-3 pl-0" style="width: 45vw; height: 20vh;">
+          <button class="food-menu btn btn-outline-secondary h-100 w-100">
+            <div class="container">
+              <div class="float-left">Food2</div>
+            </div>
+          </button>
+        </div>
+        
+
+        <div class="container m-0 pt-3 pb-3 pr-3 pl-0" style="width: 45vw; height: 20vh;">
+          <button class="food-menu btn btn-outline-secondary h-100 w-100">
+            <div class="container">
+              <div class="float-left">Food3</div>
+            </div>
+          </button>
+        </div>
+        
+
+        <div class="container m-0 pt-3 pb-3 pr-3 pl-0" style="width: 45vw; height: 20vh;">
+          <button class="food-menu btn btn-outline-secondary h-100 w-100">
+            <div class="container">
+              <div class="float-left">Food4</div>
+            </div>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+</main>
+{% endblock %}
+
+{% block style %}
+<style>
+      /* body {
+      background-color: #212121;
+      color: white
+      } */
+   </style>
+{% endblock %}
+
+

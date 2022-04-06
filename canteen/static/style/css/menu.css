@@ -1,0 +1,69 @@
+.text-maincolor {
+  color: #ff7500;
+}
+
+div.block {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+div.headblock {
+  background-color: #ffd6bb;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+div.comment {
+  background-color: transparent;
+  color: #ff7500;
+  font-weight: 400;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border: 0;
+}
+
+div.comment:hover {
+  background-color: transparent;
+  color: #ff7500;
+  font-weight: 400;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+thead {
+  background-color: #ffdec1;
+}
+
+.labl {
+  width: 430px;
+}
+
+.labl > input {
+  /* HIDE RADIO */
+  visibility: hidden;
+  /* Makes input not-clickable */
+  position: absolute;
+  /* Remove input from document flow */
+}
+
+.labl > input + div {
+  /* DIV STYLES */
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.labl > input:checked + div {
+  /* (RADIO CHECKED) DIV STYLES */
+  background-color: #ffd6bb;
+  border: 1px solid #ff6600;
+}
+
+.btn-maincolor {
+  background-color: #ff7500;
+}
+
+.btn-maincolor-semi {
+  background-color: #ffbc82;
+}
+
+.btn-maincolor-soft {
+  background-color: #ffd6bb;
+}
+
+/*# sourceMappingURL=menu.css.map */

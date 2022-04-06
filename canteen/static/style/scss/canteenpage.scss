@@ -1,0 +1,258 @@
+$main-color: #ff7500;
+// nav-bar z-index is 1020
+
+$side-card-width: 400px;
+
+.text-maincolor{
+  color: $main-color;
+}
+
+.bg-over-lay{
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,.48);
+  z-index: 2000;
+}
+
+.sidecart{
+  height: 100vh;
+  width: $side-card-width;
+  min-width: $side-card-width;
+  position: fixed;
+  overflow:auto !important;
+  right: - $side-card-width;
+  z-index: 9000;
+  transition: 0.5s ease;
+  background-color: #ffffff !important;
+}
+  
+@media(max-width: 400px){
+  .sidecart{
+    width: 100vw;
+    right: -100vw;
+  }
+}
+  
+.open-cart{
+  right: 0px !important;
+}
+  
+.product-quantity{
+  position: relative;
+}
+  
+.product-quantity:after{
+  content: 'x de';
+  white-space: nowrap;
+  position: absolute;
+  z-index: 10;
+  margin-left: 2px;
+}
+
+.sidecart-price > div{
+  margin: auto;
+  width: 100%;
+  white-space: nowrap;
+}
+
+button.btn-main-color{
+  background-color: $main-color;
+  color: #ffffff;
+}
+
+// end side cart css
+
+// pop-up css
+.pop-up{
+  background-color: #fefefe;
+  width: 50%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  overflow: scroll;
+  display: none;
+}
+
+.display-show{
+  display: block !important;
+}
+
+#food-info-img{
+  padding-bottom: 40%;
+  background-size: cover;
+  background-position: center center;
+}
+
+label.radio-box{
+  display: block;
+  position: relative;
+  padding-left: 50px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  margin-bottom: 0px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+label.radio-box:hover{
+  background-color: rgb(247, 247, 247);
+}
+
+label.radio-box input{
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkmark{
+  position: absolute;
+  top: 17px;
+  left: 20px;
+  height: 20px;
+  width: 20px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+label.radio-box:hover input ~ .checkmark{
+  background-color: #ccc;
+}
+
+label.radio-box input:checked ~ .checkmark{
+  background-color: $main-color;
+}
+
+.checkmark::after{
+  content: '';
+  position: absolute;
+  display: none;
+}
+
+label.radio-box input:checked ~ .checkmark:after {
+  display: block;
+}
+
+label.radio-box .checkmark::after {
+ top: 6px;
+ left: 6px;
+ width: 8px;
+ height: 8px;
+ border-radius: 50%;
+ background: white;
+}
+
+label.radio-box .price{
+  padding-right: 20px;
+}
+
+// end pop-up css
+
+// main page css
+#bg-img{
+  padding-bottom: 20%;
+  background-size: cover;
+  background-position: center center;
+}
+
+div.canteen-pic{
+  position: relative;
+  background-color: #343a40;
+  background-size: cover;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+}
+
+
+// some color problem when hovering over button
+// color changes from normal to gray to orange (observed some intermediate stage)
+@mixin menu-nav-tab-theme {
+  border-radius: 0;
+  border: 0;
+  background-color: transparent;
+}
+
+#menu-nav-tab button{
+  @include menu-nav-tab-theme();
+  font-weight: 200;
+}
+
+#menu-nav-tab button:hover{
+  @include menu-nav-tab-theme();
+  color: $main-color;
+  font-weight: 600;
+}
+
+#menu-nav-tab button:focus{
+  @include menu-nav-tab-theme();
+  font-weight: 400;
+  box-shadow: none;
+}
+
+@mixin btn-food-menu-theme(){
+  background-color: transparent;
+  color: $main-color;
+  font-weight: 400;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+button.food-menu{
+  @include btn-food-menu-theme();
+  border: 0;
+}
+
+button.food-menu:hover{
+  @include btn-food-menu-theme();
+  border: 1px solid !important;
+  border-color: $main-color;
+}
+
+button.food-menu:focus{
+  @include btn-food-menu-theme();
+  border-color: $main-color;
+}
+
+@mixin div-comment-theme(){
+  background-color: transparent;
+  color: $main-color;
+  font-weight: 400;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+div.comment{
+  @include div-comment-theme();
+  border: 0;
+}
+
+div.comment:hover{
+  @include div-comment-theme();
+}
+
+div.comment:focus{
+  @include div-comment-theme();
+  background-color: white;
+  border-color: $main-color;
+}
+
+div.plus_sign:hover{
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
+// test
+
+
+
+
+// COULDN'T GET THIS TO WORK, DON"T KNOW WhY
+// button #food:hover{
+//   cursor: url('../../image/cutlery-icon.png') !important;
+// }
+  
+  

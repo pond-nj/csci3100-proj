@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% set active_page = "canteens" %}
+
+{% block title %}
+Canteen List
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid my-4">
+  <div class="row justify-content-left mx-4">
+    {% for canteen in canteens %}
+    <div class="col-lg-4 my-3">
+      <div class="card">
+        {% if canteen.image_path %}
+        <img class="card-img-top" src="{{canteen.image_path}}">
+        {% endif %}
+        <div class="card-body">
+          <h3 class="card-title">{{canteen.name}}</h3>
+          <img src="../../static/image/icon/time.png" class="mr-2" style="float:left;" alt="clock" width="20"
+            height="20">
+          <p class="card-text">Open from {{canteen.open_at}} to {{canteen.close_at}}</p>
+          <!--image from flaticon-->
+          <img src="../../static/image/icon/seat.png" class="mr-2" style="float:left;" alt="seat" width="20"
+            height="20">
+          <p class="card-text">Capacity: {{canteen.capacity}}</p>
+        </div>
+        <h4 class="mx-4">Menu</h4>
+        <div class="row mx-4">
+          <table class="table table-hover border-bottom border-right border-left text-center">
+            <thead class="thead-dark">
+              <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Image</th>
+              </tr>
+            </thead>
+            {% for dish in canteen.menu[:3] %}
+            <tbody>
+              <tr>
+                <td>{{dish.name}}</td>
+                <td>{{dish.price}}</td>
+                <td>
+                  {% if dish.image_path %}
+                  <img src={{dish.image_path}} width="150px">
+                  {% else %}
+                  No image for this dish
+                  {% endif %}
+                </td>
+              </tr>
+            </tbody>
+            {% endfor %}
+          </table>
+        </div>
+        <div class="row mx-4 my-4">
+          <img src="../../static/image/icon/arrow.png" class="mr-2" style="float:left;" alt="clock" width="20"
+            height="20"><a href="/canteens/{{canteen._id}}" style="color: black;">See More</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+
+    <br>
+  </div>
+</div>
+
+{% endblock %}
