@@ -11,6 +11,8 @@ flask-mail = "*"
 flask-wtf = "*"
 email-validator = "*"
 bcrypt = "*"
+turbo-flask = "*"
+python-dateutil = "*"
 
 [dev-packages]
 

@@ -137,10 +137,15 @@
       <div class="p-0 h2">Menu</div>
     </div>
 
-    <div class="container-fluid p-0">
+    <!--Section Sorted by Type-->
+    <!-- Type Template-->
+    {% for type in canteen.menu %}
+    <div class="container-fluid p-0 my-auto">
+      <h3 class="mt-4">{{type}}</h3>
       <div class="d-flex flex-row flex-wrap" style="background-color: rgb(255, 255, 255);">
 
-        {% for dish in canteen.menu %}
+        <!--Food Element-->
+        {% for dish in canteen.menu[type] %}
         <div class="container m-0 pt-3 pb-3 pl-0 pr-3 col-lg-4 col-12 col-md-6" style="height: 20vh;">
           <form method="post">
             <button class="food-menu btn btn-outline-secondary w-100" type="submit" name="add-dish" value="{{dish._id}}" style="height: 132px;">
@@ -152,7 +157,7 @@
                     <span class="mr-auto font-weight-light h6 text-left"
                       style="font-size: 15px">
                       <!-- only show 3 ingredients -->
-                      {{ dish.ingredients[0] }}
+                      {{dish.ingredients[0]}}
                       {% for i in range((dish.ingredients)|length) if not i >= 2 %}, {{ dish.ingredients[i+1] }} 
                       {% endfor %}
                     </span>
@@ -160,7 +165,7 @@
                   </div>
                   <!-- Right Side of Button -->
                   <div class="ml-auto">
-                    {% if dish.image_path %}
+                    {%if dish.image_path %}
                     <img src="{{dish.image_path}}" style="object-fit: cover; width: 100px; height: 100px;">
                     {% endif %}
                   </div>
@@ -169,18 +174,19 @@
             </button>
           </form>
         </div>
-
-
         {% endfor %}
+
       </div>
     </div>
+    {% endfor %}
+
   </div>
 
   <!-- Comment Section -->
   <div id="cat-2" class="mt-4 mb-4 pt-0 pl-5 pr-4 pb-4 container-fluid" style="background-color:rgb(255, 255, 255); ">
     <div class="container m-0 pl-0 pt-4 pb-3">
       <h2>Comment</h2>
-      <div class="h5 font-weight-light">200 comments</div>
+      <div class="h5 font-weight-light">{{comments|length}} comments</div>
       <br>
       <img src="../../static/image/icon/comment.png" class="mr-2" style="float:left;" alt="comments" width="35" height="35">
             <a href="/post_comment/{{canteen._id}}">
@@ -199,9 +205,13 @@
                 <div class="d-flex flex-row">
                   <!-- User Image and Rating -->
                   <div class="pt-4 d-flex flex-column">
-                    <img src="../../static/image/tmp/user_profile_sample.png" style="object-fit: cover; width: 50px; height: 50px;">
+                    {% if comment.by_user.image_path %}
+                    <img src="{{comment.by_user.image_path}}" style="object-fit: cover; width: 50px; height: 50px;">
+                    {% else %} 
+                    <img src="{{url_for('static',filename='image/icon/user_profile_sample.png')}}" style="object-fit: cover; width: 50px; height: 50px;">
+                    {% endif %}
                     <div class="d-flex flex-inline pl-1 pt-2">
-                      <img src="../../static/image/icon/star.png" style="width: 20px; height: 20px;">
+                      <img src="{{url_for('static',filename='image/icon/star.png')}}" style="width: 20px; height: 20px;">
                       <div class="h6 font-weight-light text-center pl-2" style="font-size: 20px">{{comment.rating}} </div>
                     </div>
                   </div>

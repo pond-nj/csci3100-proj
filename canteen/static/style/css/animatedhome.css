@@ -3,48 +3,19 @@
 }
 .wrapper {
     transform: translate(-50%, -50%);
-    justify-content: center;
-    margin-left: 100px;
-}
-
-.circle {
-    vertical-align: top;
-}
-
-#nav-tab a.active {
-    color: #ff7500;
-    font-weight: bold;
-    background-color: antiquewhite;
-}
-
-#nav-tab a{
-    color: #ff7500;
-    background-color: rgb(254, 254, 254);
-}
-
-#nav-tab a:hover {
-    color: #ff7500;
-    background-color: rgb(255, 250, 243);
+    margin-left: 20%;
+    display: inline;
 }
 
 #reload {
-    display: flex;
-    width: 120%;
-    height: 120%;
-    margin-top: 310px;
-    margin-left: auto;
-}
-
-#imgcol {
+    width: 100%;
+    height: 100%;
+    min-height: 300px;
     max-height: 650px;
-    justify-content: center;
-}
-
-#textabove {
-    margin-top: 210px;
-}
-#below {
-    position: fixed;
+    min-width: 300px;
+    max-width: 650px;
+    margin-top: 0;
+    margin-left: 0;
 }
 
 .card {
@@ -58,6 +29,10 @@
 }
 
 #closed{
+    opacity: 0.3;
+}
+
+#imgclosed{
     opacity: 0.3;
 }
 

@@ -32,14 +32,13 @@ class DataEditForm(FlaskForm):
     text = TextAreaField()
     submit = SubmitField()
 
-
 class DataEditFormWithImage(FlaskForm):
     text = TextAreaField()
     image = FileField()
     submit = SubmitField()
 
-
 class DataEditFormWithSelect(FlaskForm):
     text = TextAreaField()
     select = SelectMultipleField()
     submit = SubmitField()
+

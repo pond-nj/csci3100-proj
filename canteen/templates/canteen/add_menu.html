@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Add Type
+{% endblock %}
+
+{% block stylesheet %}
+<link rel="stylesheet" href="{{url_for('static',filename='style/css/add_menu.css')}}">
+{% endblock %}
+
+{% block content %}
+    <div class="block m-4"> 
+        <div class="h2 p-3 headtitle">Add menu</div>
+        <div class="p-3">
+            <div class="h4 mb-3">Menu Information</div>
+
+            <form enctype="multipart/form-data" method="POST">
+                <div class="form-group row">
+                    <label for="menu-name" class="pl-3 col-form-label pr-0">Menu Name: </label>
+                    <div class="col pl-3">
+                        <input type="text" class="form-control" id="menu-name" placeholder="Enter Menu Name" name="menu-name"></input>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="price" class="pl-3 col-form-label pr-0">Price: </label>
+                    <div class="col pl-3">
+                        <input type="text" class="form-control" id="price" placeholder="Enter price (up to 2 decimal points)" name="price"></input>
+                    </div>
+                </div>
+            
+                <div class="form-group row">
+                    <label for="ingredients" class="pl-3 col-form-label pr-0">Ingredients: </label>
+                    <div class="col pl-3">
+                        <input type="text" class="form-control" id="ingredients" name="ingredients" placeholder="Add Ingredients seperate by comma e.g. orange, banana "></input>
+                        <small class="form-text text-muted">Please seperate ingredients by comma e.g. "orange, banana"</small>
+
+                    </div>
+                </div>
+
+                <div class="">
+                    <div class="row pl-3 pb-3">
+                        <div class="h4 mr-3">Upload Image:</div>
+                        <div class="form-group">
+                            <input type="file" class="form-control-file mb-3" name="file">
+                        </div>
+                    </div>
+                    <div class="ml-3">
+                        <img class="pl-0 pb-2" src="{{url_for('static',filename='image/tmp/bg-masthead.jpeg')}}" style="width: 150px;">
+                        <div class="text-center" style="width: 150px;">Image.jpeg</div>
+                    </div>
+                </div>
+
+                <div class="d-flex">
+                    <button class="btn btn-main-color ml-auto" type="submit">
+                        Add Menu
+                    </button>
+                </div>
+            </form>
+
+
+            
+
+        </div>
+    </div>
+{% endblock %}
