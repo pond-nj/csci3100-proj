@@ -1,4 +1,4 @@
-# CSCI3100_canteen_webapp
+# Canteen Food Ordering
 
 This is a project on food ordering website.
 Develop with flask.
