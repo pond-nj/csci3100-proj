@@ -4,7 +4,7 @@ import os
 from collections import Counter
 from unittest import result
 from bson import ObjectId
-from canteen import app, mongo, mail, db
+from canteen import app, mail, db
 from flask import render_template, redirect, url_for, flash, request
 from flask_login import login_user, logout_user, current_user, login_required
 from .form import UserRegistrationForm, UserLoginForm
@@ -228,7 +228,7 @@ def register_page():
         token = generate_confirmation_token(form.email.data)
 
         msg = Message('Verification Email', recipients=[form.email.data])
-        msg.body = 'Go here to for verification. http://127.0.0.1:5000/confirm_email/%s' % token
+        msg.body = 'Go here to for verification. https://csci3100-food-ordering.herokuapp.com/confirm_email/%s' % token
         mail.send(msg)
 
         db.users.insert_one(user_to_create.to_json())

@@ -5,7 +5,7 @@
 from typing import List, Union
 from bson import ObjectId
 import datetime
-from canteen import mongo, login_manager,db 
+from canteen import login_manager, db
 from flask_login import UserMixin
 
 

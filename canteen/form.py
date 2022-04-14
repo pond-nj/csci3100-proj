@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField, TextAreaField, FileField, SelectMultipleField
 from wtforms.validators import Length, Email, DataRequired, ValidationError
-from canteen import mongo,db 
+from canteen import db
 
 
 class UserRegistrationForm(FlaskForm):

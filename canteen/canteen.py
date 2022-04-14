@@ -2,7 +2,7 @@ import datetime
 from collections import Counter
 import re
 from bson import ObjectId
-from canteen import app, mongo, mail,db
+from canteen import app, mail, db
 from flask import render_template, redirect, url_for, flash, request
 from flask_login import login_user, logout_user, current_user, login_required
 from .form import UserRegistrationForm, UserLoginForm
@@ -32,6 +32,7 @@ menu page:
 - edit_set
 - delete_set
 """
+
 
 @app.route('/canteen_home', methods=['GET'])
 def canteen_home():
@@ -98,13 +99,9 @@ def menu_page(canteen_id, invalid_delete=''):
         return 'Not Authorized', 403
 
     if request.method == 'POST':
-        set_name=request.form.get('active-set')
+        set_id=request.form.get('active-set')
 
-        _set=list(db.sets.aggregate([
-            {'$match':{'name':set_name}}
-        ]))[0]
-
-        db.canteens.update_one({'_id': ObjectId(canteen_id)}, {'$set': {'active_set': _set['_id']}})
+        db.canteens.update_one({'_id': ObjectId(canteen_id)}, {'$set': {'active_set': set_id}})
 
         return redirect('/canteen_account/%s/menu' % canteen_id)    
 

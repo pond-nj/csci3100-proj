@@ -1,13 +1,8 @@
 from flask import Flask
 # from flask_pymongo import PyMongo
 from pymongo import MongoClient
-
 from bson import ObjectId
 import bcrypt
-
-
-client = MongoClient("mongodb+srv://csci3100:food-ordering@food-ordering.nonow.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
-db = client.test
 
 print('This script will DROP the CANTEEN DATABASE and recreate it.')
 option = input('Y to continue / N to exit \n')
@@ -15,9 +10,13 @@ if option.lower() != 'y':
     exit()
 
 app = Flask(__name__)
-# app.config['MONGO_URI'] = 'mongodb://localhost:27017/canteen'
-# app.config['SECRET_KEY'] = 'dQw4w9WgXcQ'
+app.config['MONGO_URI'] = 'mongodb://localhost:27017/canteen'
+app.config['SECRET_KEY'] = 'dQw4w9WgXcQ'
 # mongo = PyMongo(app)
+
+client = MongoClient("mongodb+srv://csci3100:food-ordering@food-ordering.nonow.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+db = client.test
+
 for collection in db.list_collection_names():
     db[collection].drop()
 

@@ -1,6 +1,6 @@
 import datetime
 import os
-from canteen import app, db, mongo
+from canteen import app, db
 from flask import render_template, request, redirect, flash
 from flask_login import current_user, login_required
 from .form import DataEditForm, DataEditFormWithImage, DataEditFormWithSelect

@@ -13,7 +13,6 @@ email-validator = "*"
 bcrypt = "*"
 turbo-flask = "*"
 python-dateutil = "*"
-pymongo = "*"
 gunicorn = "*"
 
 [dev-packages]
