@@ -13,6 +13,7 @@ email-validator = "*"
 bcrypt = "*"
 turbo-flask = "*"
 python-dateutil = "*"
+pymongo = "*"
 
 [dev-packages]
 
